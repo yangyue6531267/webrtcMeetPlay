@@ -1,0 +1,814 @@
+@primary-color: #1890ff;
+
+html, body, div, ul, li, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, form, input, textarea, th, td, select {
+    margin: 0;
+    padding: 0;
+    }
+    
+    *{
+    box-sizing: border-box;
+    }
+    
+    html, body {
+     min-height: 100%;
+    } 
+    
+    body {
+     font-family: "Microsoft YaHei";
+     font-size:14px;
+     color:#333;
+    }
+    
+    h1, h2, h3, h4, h5, h6{
+    font-weight:normal;
+    }
+    
+    ul,ol {
+     list-style: none;
+    } 
+    
+    img {
+    border: none;
+    vertical-align: middle;
+    }
+    
+    a {
+     text-decoration: none;
+     color: #232323;
+    }
+    
+    table {
+     border-collapse: collapse;
+     table-layout: fixed;
+    }
+    
+    input, textarea {
+    outline: none;
+    border: none;
+    }
+    
+    textarea {
+    resize: none;
+    overflow: auto;
+    }
+    
+    .clearfix {
+     zoom: 1;
+    }
+    
+    .clearfix:after {
+     content: ".";
+     width: 0;
+     height: 0;
+     visibility: hidden;
+     display: block;
+     clear: both;
+     overflow:hidden;
+    }
+    
+    .fl {
+     float: left 
+    }
+    
+    .fr {
+     float: right 
+    }
+    
+    .tl {
+     text-align: left;
+    }
+    
+    .tc {
+    text-align: center 
+    }
+    
+    .tr {
+     text-align: right;
+    }
+    
+    .ellipse {
+     overflow: hidden;
+     text-overflow: ellipsis;
+     white-space: nowrap;
+    } 
+    
+    .inline{
+     display: inline-block;
+     *display: inline;
+     *zoom: 1;
+    }
+
+.prompt-box{
+    height: 61px;
+    font-size: 16px;
+    color: #fff;
+    padding: 15px 40px 0 40px;
+    border-radius: 0 0 5px 5px;
+    /*min-width: 187px;*/
+    display: inline-block;
+}
+.prompt-container{
+    overflow: hidden;
+    display: inline-block;
+    position: absolute;
+}
+.prompt-mask{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+}
+.prompt-confirm{
+    display: inline-block;
+    width: 300px;
+}
+.confirm-height{
+    /* height:97px; */
+}
+.prompt-confirm .confirm-header{
+    /* height: 61px; */
+    background-color: rgba(254,55,38,0.85);
+    font-size: 16px;
+    color: #fff;
+    padding: 15px 40px 15px 40px;
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}
+.prompt-confirm .confirm-footer{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(240,158,159);
+    border-radius: 0 0 5px 5px;
+}
+.prompt-confirm .prompt-box-icon{
+    background: transparent url('./image/icon_xjq.png') center center;
+}
+.confirm-btn{
+    width: 50%;
+    height: 35px;
+    background-color: rgba(244,105,90,0.85);
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0;
+}
+.confirm-btn:hover{
+    background-color: rgba(244,105,90,0.6);
+}
+.confirm-btn:active{
+    background-color: rgba(244,105,90,1);
+}
+.confirm-btn.btn-cancel{
+    border-left: 1px solid #fff;
+}
+.prompt-box-icon{
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+.prompt-succ{
+    background-color: rgba(8,156,76,0.85);
+}
+.prompt-succ .prompt-box-icon{
+    background: transparent url('./image/icon_pjcg.png') center center;
+}
+.prompt-fail,.prompt-alarm{
+    background-color: rgba(254,55,38,0.85);
+}
+.prompt-fail .prompt-box-icon{
+    background: transparent url('./image/icon_pjsb.png') center center;
+}
+.prompt-alarm .prompt-box-icon{
+    background: transparent url('./image/icon_xjq.png') center center;
+}
+.prompt-loding{
+    background-color: #fff;
+    padding-top: 10px;
+    border: 1px solid #0078d7;
+}
+.prompt-loding .prompt-box-text{
+    color:#0078d7;
+    font-size: 18px;
+}
+.prompt-loding .prompt-box-icon{
+    background: transparent url('./image/loading.gif') center center;
+    width: 39px;
+    height: 39px;
+}
+.prompt-succ .prompt-box-text,
+.prompt-fail .prompt-box-text,
+.prompt-confirm .prompt-box-tsext,
+.prompt-alarm .prompt-box-text{
+    display: inline-block;
+    /* height: 32px; */
+    line-height: 32px;
+    vertical-align: middle;
+    font-size: 18px;
+}
+.prompt-confirm .prompt-box-text{
+    max-width: 162px;
+    /* overflow: hidden; */
+}
+.prompt-show{
+    -webkit-animation-name: card-drop;
+    animation-name: card-drop;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+}
+.prompt-hide{
+    -webkit-animation-name:box-display;
+    animation-name: box-display;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+}
+.prompt-slideup{
+    -webkit-animation-name:card-out;
+    animation-name:card-out;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+}
+
+.prompt-btn-close{
+	width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border: none;
+    background:transparent  url(./image/dialog_btn.png) no-repeat -15px center;
+}
+/*上测飞入动画*/
+@-webkit-keyframes card-drop {
+    from {
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)
+    }
+
+    to {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+}
+@keyframes card-drop {
+    from {
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)
+    }
+
+    to {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+}
+@-webkit-keyframes card-out {
+    from {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+
+    to {
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)    
+    }
+}
+@keyframes card-out {
+    from {
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0)
+    }
+
+    to {
+        -webkit-transform: translate3d(0,-100%,0);
+        transform: translate3d(0,-100%,0)    
+    }
+}
+
+@keyframes box-display {
+    0% {
+        opacity:1
+    }
+
+    100% {
+        opacity:0 
+    }
+}
+@-webkit-keyframes box-display {
+    0% {
+        opacity:1
+    }
+
+    100% {
+        opacity:0 
+    }
+}
+
+.prompt-shining {
+  animation-name: shining;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  -webkit-animation-name: shining;
+  -webkit-animation-duration: 0.3s;
+  -webkit-animation-fill-mode: both;
+}
+@-webkit-keyframes shining {
+  0% {
+    box-shadow:0px 0px 2px rgba(204,0,0,1)
+  }
+  20% {
+    box-shadow:none;
+  }
+  40% {
+    box-shadow:0px 0px 2px rgba(204,0,0,1)
+  }
+  60% {
+    box-shadow:none
+  }
+  80% {
+    box-shadow:0px 0px 2px rgba(204,0,0,1)
+  }
+  100% {
+    box-shadow:none
+  }
+}
+@keyframes shining {
+  0% {
+    box-shadow:0px 0px 2px rgba(204,0,0,1)
+  }
+  33% {
+    box-shadow:none;
+  }
+  66% {
+    box-shadow:0px 0px 2px rgba(204,0,0,1)
+  }
+  100% {
+    box-shadow:none
+  }
+}
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.video-main {
+    position: absolute;
+    top: 64px;
+    left: 25px;
+    right: 20px;
+    bottom: 76px;
+    border: 1px solid #999;
+}
+
+.video-main-full {
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    right: 1px;
+    bottom: 1px;
+    border: 1px solid #999;
+}
+
+.video-main > li, .video-main-full > li {
+    border: 1px solid #aaa;
+    float: left;
+    position: relative;
+}
+
+.video-main > li.loading, .video-main-full > li.loading {
+    background: #000;
+}
+
+.video-main > li.result, .video-main-full > li.result {
+    background: #000;
+}
+
+.video-main > li:hover, .video-main-full > li:hover {
+    border: 2px solid #ffb951;
+}
+
+.video-main > li.sel, .video-main-full > li.sel {
+    border: 2px solid #ef8601;
+}
+
+/*视频播放结果内容样式*/
+/*左上角真实错误内容*/
+.video-main > li .real-result {
+    color: #fff;
+}
+
+/*中间错误提示内容*/
+.video-main > li .result {
+    position: absolute;
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.video-main > li .result .result-tip {
+
+}
+
+.video-main > li .result .result-replay {
+    text-align: center;
+}
+
+.video-main > li .result .replay {
+    margin-top: 1%;
+    text-decoration: underline;
+}
+
+.video-main.mode-1 > li, .video-main-full.mode-1 > li {
+    width: 100%;
+    height: 100%;
+}
+
+.video-main.mode-1 > li .info-top, .video-main-full.mode-1 > li .info-top {
+    font-size: 20px;
+    top: 40px;
+}
+
+.video-main.mode-1 > li .info-bottom, .video-main-full.mode-1 > li .info-bottom {
+    pointer-events: none;
+    font-size: 20px;
+    bottom: 40px;
+}
+
+.video-main.mode-4 > li {
+    width: 50%;
+    height: 50%;
+}
+
+.video-main.mode-4 > li .info-top {
+    font-size: 18px;
+    top: 20px;
+}
+
+.video-main.mode-4 > li .info-bottom {
+    pointer-events: none;
+    font-size: 18px;
+    bottom: 20px;
+}
+
+.video-main.mode-4-vertical > li {
+    width: 100%;
+    height: 25%;
+}
+
+.video-main.mode-4-vertical > li .info-top {
+    font-size: 18px;
+    top: 20px;
+}
+
+.video-main.mode-4-vertical > li .info-bottom {
+    pointer-events: none;
+    font-size: 18px;
+    bottom: 20px;
+}
+
+.video-main.mode-6 > li {
+    width: 33.33%;
+    height: 33.33%;
+}
+
+.video-main.mode-6 > li .info-top {
+    font-size: 14px;
+    top: 13px;
+}
+
+.video-main.mode-6 > li .info-bottom {
+    pointer-events: none;
+    font-size: 14px;
+    bottom: 13px;
+}
+
+.video-main.mode-6 li:nth-child(1) {
+    width: 66.66%;
+    height: 66.65%;
+}
+
+.video-main.mode-6 li:nth-child(1) .info-top {
+    font-size: 18px;
+    top: 30px;
+}
+
+.video-main.mode-6 li:nth-child(1) .info-bottom {
+    font-size: 18px;
+    bottom: 30px;
+}
+
+.video-main.mode-9 > li {
+    width: 33.33%;
+    height: 33.33%;
+}
+
+.video-main.mode-9 > li .info-top {
+    font-size: 12px;
+    top: 14px;
+}
+
+.video-main.mode-9 > li .info-bottom {
+    pointer-events: none;
+    font-size: 12px;
+    bottom: 14px;
+}
+
+.video-main.mode-16 > li {
+    width: 25%;
+    height: 25%;
+}
+
+.video-main.mode-16 > li .info-top {
+    font-size: 8px;
+    top: 10px;
+}
+
+.video-main.mode-16 > li .info-bottom {
+    pointer-events: none;
+    font-size: 8px;
+    bottom: 10px;
+}
+.screen {
+    width: 100%;
+    height: 100%;
+}
+.video-box {
+    object-fit: fill;
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.video-tip {
+    width: 80%;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size:  14px;
+    text-align: center;
+    background-color: #e9e2e285;
+    border-radius: 15px;
+    margin-left:0px;
+    white-space: nowrap; /* 防止文本换行 */
+    overflow: hidden; /* 隐藏溢出的文本 */
+    text-overflow: ellipsis; 
+}
+
+.stream-loading {
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -15px;
+    margin-left: -100px;
+    color: #fff;
+    font-size: 16px;
+    padding-left: 30px;
+    background: transparent url(./image/loading.gif) no-repeat 10px center;
+}
+
+.info {
+    position: absolute;
+    float: left;
+    color: #fff;
+    left: 10px;
+    width: 67%;
+    bottom: 10px;
+    /*  bottom: 10px;
+        width: 320px;
+        height: 30px;
+        text-align: center; */
+    z-index: 1;
+}
+
+.operate-btn {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    float: left;
+    right: 1px;
+    bottom: 2px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.send-audio-btn {
+    position: absolute;
+    bottom: -8px;
+    right: 96px;
+    border: 0;
+    width: 48px;
+    height: 48px;
+    float: left;
+    background: url(./image/video/audio/yy.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.unsend-audio-btn {
+    position: absolute;
+    bottom: -8px;
+    right: 96px;
+    border: 0;
+    width: 48px;
+    height: 48px;
+    float: left;
+    background-image: url(./image/video/audio/yy_gb.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.recv-audio-btn {
+    position: absolute;
+    bottom: -8px;
+    right: 60px;
+    border: 0;
+    width: 48px;
+    height: 48px;
+    float: left;
+    background: url(./image/video/audio/hm_shengyin_sel.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.unrecv-audio-btn {
+    position: absolute;
+    bottom: -8px;
+    right: 60px;
+    border: 0;
+    width: 48px;
+    height: 48px;
+    float: left;
+    background-image: url(./image/video/audio/hm_jingyin_sel.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.lock-video-btn {
+    position: absolute;
+    bottom: 1px;
+    right: 33px;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background: url(./image/video/audio/lock-video.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.change-resolution {
+    position: absolute;
+    bottom: 1px;
+    right: 175px;
+    border: 0;
+    width: 35px;
+    height: 30px;
+    float: left;
+    font-size: 16px;
+    background-size: 100% 100%;
+    color: #0FCDED;
+    background-color: transparent;
+}
+
+.change-resolution .resolution-wrapper {
+    position: absolute;
+    width: 45px;
+    bottom: 25px;
+    color: #eeeeee;
+    background: #333333;
+}
+
+.change-resolution .resolution-wrapper li {
+    margin-top: 10px;
+}
+
+.change-video-source {
+    position: absolute;
+    bottom: 1px;
+    right: 135px;
+    border: 0;
+    width: 35px;
+    height: 30px;
+    float: left;
+    background-image: url(./image/video/audio/change-video-source.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.unlock-video-btn {
+    position: absolute;
+    bottom: 1px;
+    right: 33px;
+    border: 0;
+    width: 30px;
+    height: 30px;
+    float: left;
+    background-image: url(./image/video/audio/unlock-video.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.close-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    border: 0;
+    width: 20px;
+    height: 20px;
+    float: left;
+    background-image: url(./image/video/close.png);
+    background-size: 100% 100%;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.operation {
+    position: absolute;
+    width: 100%;
+    height: 12%;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+}
+
+.operate-btn .hide {
+    display: none;
+}
+
+.video-main .hide {
+    display: none;
+}
+
+/* 底部信息框 */
+.change-bottom-info {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    min-width: 15%;
+    max-width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: rgba(72, 212, 243, 1);
+    padding-left: 5px;
+    font-size: 14px;
+    background-color: rgba(14, 55, 92, 0.80);
+    align-items: center;
+} 
+.change-bottom-info .speakName{
+    margin-left: 5px;
+    width: 90%;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-right:5px;
+}
+.change-bottom-info .speakType.speak{
+    background: url(./image/newAudio/icon_maikefeng.png) no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 20px;
+    width: 12px;
+    margin-left: 2px;
+}
+
+.change-bottom-info .speakType.audience{
+    background: url(./image/newAudio/icon_jinyin.png) no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 20px;
+    width: 12px;
+    margin-left: 2px;
+}
+
+.change-bottom-info .speakType.speak_start{
+    margin-left: 2px;
+    background: transparent url(./image/newAudio/start.gif) no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 20px;
+    width: 10px;
+}
+.change-bottom-info .speakType.speak_stop{
+    background: url(./image/newAudio/icon_maikefeng.png) no-repeat;
+    background-size: 100% 100%;
+    display: inline-block;
+    height: 20px;
+    width: 12px;
+    margin-left: 2px;
+}
